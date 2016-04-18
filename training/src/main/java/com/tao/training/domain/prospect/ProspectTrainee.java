@@ -1,9 +1,11 @@
 package com.tao.training.domain.prospect;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.master.Title;
 import com.tao.training.domain.person.Member;
-
+@JsonInclude(Include.NON_NULL)
 public class ProspectTrainee extends AbstractDomain<Long>{
 		public ProspectTrainee()
 		{
