@@ -5,5 +5,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.SimpleMasterObject;
 @JsonInclude(Include.NON_NULL)
 public class EducationLevel extends SimpleMasterObject {
-
+		
+	public EducationLevel()
+	{
+		
+	}
+	
 }

@@ -6,4 +6,10 @@ import com.tao.training.domain.SimpleMasterObject;
 @JsonInclude(Include.NON_NULL)
 public class PaymentMethod extends SimpleMasterObject {
 
+	
+	public PaymentMethod()
+	{
+		
+	}
+	
 }
