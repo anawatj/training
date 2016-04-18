@@ -1,12 +1,13 @@
 package com.tao.training.domain.payment;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
-import com.tao.training.domain.emumurate.CheckResult;
+import com.tao.training.domain.emumurate.FlagResult;
 import com.tao.training.domain.master.Department;
 import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.PaymentMethod;
@@ -18,7 +19,7 @@ public class Payment extends AbstractDomain<Long> {
 		
 	public Payment()
 	{
-		
+		this.items = new HashSet<PaymentItem>();
 	}
 	private String paymentCode;
 	private Date paymentDate;
@@ -34,13 +35,13 @@ public class Payment extends AbstractDomain<Long> {
 	
 	private Employee reviewer;
 	private Date reviewDate;
-	private CheckResult reviewResult;
+	private FlagResult reviewResult;
 	private String reviewRemark;
 	
 	
 	private Employee approver;
 	private Date approveDate;
-	private CheckResult approveResult;
+	private FlagResult approveResult;
 	private String approveRemark;
 	
 	private Set<PaymentItem> items;
@@ -149,11 +150,11 @@ public class Payment extends AbstractDomain<Long> {
 		this.reviewDate = reviewDate;
 	}
 
-	public CheckResult getReviewResult() {
+	public FlagResult getReviewResult() {
 		return reviewResult;
 	}
 
-	public void setReviewResult(CheckResult reviewResult) {
+	public void setReviewResult(FlagResult reviewResult) {
 		this.reviewResult = reviewResult;
 	}
 
@@ -181,11 +182,11 @@ public class Payment extends AbstractDomain<Long> {
 		this.approveDate = approveDate;
 	}
 
-	public CheckResult getApproveResult() {
+	public FlagResult getApproveResult() {
 		return approveResult;
 	}
 
-	public void setApproveResult(CheckResult approveResult) {
+	public void setApproveResult(FlagResult approveResult) {
 		this.approveResult = approveResult;
 	}
 

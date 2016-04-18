@@ -1,6 +1,6 @@
 package com.tao.training.domain.emumurate;
 
-public enum CheckResult {
+public enum FlagResult {
 		P,
 		F
 }
