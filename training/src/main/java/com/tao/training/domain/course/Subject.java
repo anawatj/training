@@ -2,8 +2,10 @@ package com.tao.training.domain.course;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
-
+@JsonInclude(Include.NON_NULL)
 public class Subject extends AbstractDomain<Long> {
 	public Subject()
 	{
