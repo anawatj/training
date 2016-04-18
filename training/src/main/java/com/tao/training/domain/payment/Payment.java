@@ -13,6 +13,7 @@ import com.tao.training.domain.master.Department;
 import com.tao.training.domain.master.District;
 import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.PaymentMethod;
+import com.tao.training.domain.master.PaymentType;
 import com.tao.training.domain.master.Position;
 import com.tao.training.domain.master.Province;
 import com.tao.training.domain.person.Employee;
@@ -59,6 +60,16 @@ public class Payment extends AbstractDomain<Long> {
 	private String fax;
 	private String idCard;
 	
+	private PaymentType paymentType;
+	
+
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
+	}
 
 	public String getIdCard() {
 		return idCard;
