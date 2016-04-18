@@ -3,6 +3,7 @@ package com.tao.training.domain.prospect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
+import com.tao.training.domain.master.EducationLevel;
 import com.tao.training.domain.master.Title;
 import com.tao.training.domain.person.Member;
 @JsonInclude(Include.NON_NULL)
@@ -17,6 +18,14 @@ public class ProspectTrainee extends AbstractDomain<Long>{
 		private String lastName;
 		private Member refMember;
 		private String idCard;
+		private EducationLevel educationLevel;
+		
+		public EducationLevel getEducationLevel() {
+			return educationLevel;
+		}
+		public void setEducationLevel(EducationLevel educationLevel) {
+			this.educationLevel = educationLevel;
+		}
 		public Long getProspectId() {
 			return prospectId;
 		}
