@@ -12,6 +12,13 @@ public class Lecturer extends Person{
 	private String lacturerDate;
 	private Double salary;
 	private String degree;
+	private EducationLevel educationLevel;
+	public EducationLevel getEducationLevel() {
+		return educationLevel;
+	}
+	public void setEducationLevel(EducationLevel educationLevel) {
+		this.educationLevel = educationLevel;
+	}
 	public String getLacturerCode() {
 		return lacturerCode;
 	}
