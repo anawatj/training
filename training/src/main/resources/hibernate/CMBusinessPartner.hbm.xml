@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class abstract="true" name="com.tao.training.domain.person.BusinessPartner"
+		table="CM_M_BUSINESS_PARTNER">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">CM_M_BUSINESS_PARTNER_SEQ</param>
+			</generator>
+		</id>
+		
+		<version name="version" column="VERSION"></version>
+		<property name="bpCode" column="BP_CODE" length="20"></property>
+		<many-to-one name="title" column="TITLE_ID"
+			class="com.tao.training.domain.master.Title" lazy="proxy" not-found="ignore"></many-to-one>
+		<property name="firstName" column="FIRST_NAME" length="200"></property>
+		<property name="lastName" column="LAST_NAME" length="200"></property>
+		<property name="birthDate" column="BIRTH_DATE"></property>
+		<many-to-one name="nationality" column="NATIONALITY_ID"
+			class="com.tao.training.domain.master.Nationality" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<many-to-one name="citizen" column="CITIZEN_ID"
+			class="com.tao.training.domain.master.Citizen" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<property name="address" column="ADDRESS"></property>
+		<many-to-one name="province" column="PROVINCE_ID"
+			class="com.tao.training.domain.master.Province" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<many-to-one name="amphur" column="AMPHUR_ID"
+			class="com.tao.training.domain.master.Amphur" lazy="proxy" not-found="ignore"></many-to-one>
+		<many-to-one name="district" column="DISTRICT_ID"
+			class="com.tao.training.domain.master.District" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<property name="zipCode" column="ZIP_CODE" length="20"></property>
+		<property name="phone" column="PHONE" length="20"></property>
+		<property name="mobile" column="MOBILE" length="20"></property>
+		<property name="email" column="EMAIL" length="20"></property>
+		<property name="fax" column="FAX" length="20"></property>
+		<many-to-one name="spouseTitle" column="SPOUSE_TITLE_ID"
+			class="com.tao.training.domain.master.Title" lazy="proxy" not-found="ignore"></many-to-one>
+		<property name="spouseName" column="SPOUSE_FNAME" length="200"></property>
+		<property name="spouseLName" column="SPOUSE_LNAME" length="200"></property>
+		<property name="fatherName" column="FATHER_FNAME" length="200"></property>
+		<property name="fatherLName" column="FATHER_LNAME" length="200"></property>
+		<property name="motherName" column="MOTHER_FNAME" length="200"></property>
+		<property name="motherLName" column="MOTHER_LNAME" length="200"></property>
+		<property name="idCard" column="ID_CARD" length="200"></property>
+		<property name="male" column="MALE"></property>
+		<property name="fmale" column="FMALE"></property>
+		<property name="numSibling" column="NUM_SIBLING"></property>
+		<property name="bloodGroup" column="BLOOD_GROUP">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.tao.training.domain.emumurate.BloodGroup</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+
+		<set name="educations" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpEducation" not-found="ignore"/>
+				
+		</set>
+		
+		<set name="experiences" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpExperience" not-found="ignore"/>
+		</set>
+		
+		<set name="sibling" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpSibling" not-found="ignore"/>
+				
+		</set>
+		<set name="children" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpChild" not-found="ignore"/>
+		</set>
+		
+	
+		<set name="languages" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpLanguage" not-found="ignore"/>
+		</set>
+		<set name="trainings" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpTraining" not-found="ignore"/>
+		</set>
+		<set name="references" lazy="true" cascade="all-delete-ophran">
+				<key column="BP_ID"></key>
+				<one-to-many class="com.tao.training.domain.person.BpReference" not-found="ignore"/>
+		</set>
+
+
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+	</class>
+	<joined-subclass name="com.tao.training.domain.person.Lecturer" extends="com.tao.training.domain.person.BusinessPartner" table="CM_M_LECTURER" >
+				<key column="LECTURER_ID"></key>
+				<property name="effectiveDate" column="EFFECTIVE_DATE"></property>
+				<property name="expiryDate" column="EXPIRY_DATE"></property>
+				<property name="lecturerCode" column="LECTURER_CODE" length="20"></property>
+				<set name="courses" cascade="all-delete-ophran">
+						<key column="LECTURER_ID"></key>
+						<one-to-many class="com.tao.training.domain.person.LecturerCourse" not-found="ignore"/>
+				</set>
+	</joined-subclass>
+	<joined-subclass name="com.tao.training.domain.person.Member" extends="com.tao.training.domain.person.BusinessPartner" table="CM_M_LECTURER" >
+				<key column="MEMBER_ID"></key>
+				<property name="memberCode" column="MEMBER_CODE" length="20"></property>
+				<many-to-one name="memberType" column="MEMBER_TYPE_ID" class="com.tao.training.domain.master.MemberType" lazy="proxy" not-found="ignore"></many-to-one>
+	</joined-subclass>
+</hibernate-mapping>

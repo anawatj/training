@@ -69,7 +69,15 @@ public abstract  class BusinessPartner extends AbstractDomain<Long>{
 	
 	private BloodGroup bloodGroup;
 	
+	private String idCard;
 	
+	
+	public String getIdCard() {
+		return idCard;
+	}
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
 	public BloodGroup getBloodGroup() {
 		return bloodGroup;
 	}
