@@ -1,4 +1,4 @@
-package com.tao.training.domain.train;
+package com.tao.training.domain.training;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

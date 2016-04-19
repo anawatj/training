@@ -1,7 +1,7 @@
 package com.tao.training.repository;
 
 import com.tao.training.domain.Result;
-import com.tao.training.domain.train.Training;
+import com.tao.training.domain.training.Training;
 
 public interface ITrainingRepository extends Repository<Training,Long> {
 
