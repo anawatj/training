@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.master.Resource;
-import com.tao.training.domain.person.Employee;
+import com.tao.training.domain.person.BusinessPartner;
+
 @JsonInclude(Include.NON_NULL)
 public class ReservationItem extends AbstractDomain<Long>{
 		
@@ -14,7 +15,7 @@ public class ReservationItem extends AbstractDomain<Long>{
 	}
 	private Long reservationId;
     private Resource reserveResource;
-    private Employee reserveBp;
+    private BusinessPartner reserveBp;
 
     private String reserveDate;
     private String reserveDateTo;
@@ -34,10 +35,10 @@ public class ReservationItem extends AbstractDomain<Long>{
 	public void setReserveResource(Resource reserveResource) {
 		this.reserveResource = reserveResource;
 	}
-	public Employee getReserveBp() {
+	public BusinessPartner getReserveBp() {
 		return reserveBp;
 	}
-	public void setReserveBp(Employee reserveBp) {
+	public void setReserveBp(BusinessPartner reserveBp) {
 		this.reserveBp = reserveBp;
 	}
 	public String getReserveDate() {

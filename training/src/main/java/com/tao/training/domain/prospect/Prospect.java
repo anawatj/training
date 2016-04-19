@@ -14,9 +14,10 @@ import com.tao.training.domain.emumurate.FlagOutdoor;
 import com.tao.training.domain.emumurate.FlagType;
 import com.tao.training.domain.master.CourseType;
 import com.tao.training.domain.master.DocStatus;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
-import com.tao.training.domain.person.Lecturer;
 import com.tao.training.domain.person.Member;
+
 @JsonInclude(Include.NON_NULL)
 public class Prospect extends AbstractDomain<Long>{
 	
@@ -40,10 +41,10 @@ public class Prospect extends AbstractDomain<Long>{
 	private String objective2;
 	private String objective3;
 	private String objective4;
-	private Lecturer interestLacturer1;
-	private Lecturer interestLacturer2;
-	private Lecturer interestLacturer3;
-	private Lecturer interestLacturer4;
+	private BusinessPartner interestLacturer1;
+	private BusinessPartner interestLacturer2;
+	private BusinessPartner interestLacturer3;
+	private BusinessPartner interestLacturer4;
 	
 	private FlagMorring flagMorring;
 	private FlagAfternoon flagAfternoon;
@@ -261,42 +262,42 @@ public class Prospect extends AbstractDomain<Long>{
 	}
 
 
-	public Lecturer getInterestLacturer1() {
+	public BusinessPartner getInterestLacturer1() {
 		return interestLacturer1;
 	}
 
 
-	public void setInterestLacturer1(Lecturer interestLacturer1) {
+	public void setInterestLacturer1(BusinessPartner interestLacturer1) {
 		this.interestLacturer1 = interestLacturer1;
 	}
 
 
-	public Lecturer getInterestLacturer2() {
+	public BusinessPartner getInterestLacturer2() {
 		return interestLacturer2;
 	}
 
 
-	public void setInterestLacturer2(Lecturer interestLacturer2) {
+	public void setInterestLacturer2(BusinessPartner interestLacturer2) {
 		this.interestLacturer2 = interestLacturer2;
 	}
 
 
-	public Lecturer getInterestLacturer3() {
+	public BusinessPartner getInterestLacturer3() {
 		return interestLacturer3;
 	}
 
 
-	public void setInterestLacturer3(Lecturer interestLacturer3) {
+	public void setInterestLacturer3(BusinessPartner interestLacturer3) {
 		this.interestLacturer3 = interestLacturer3;
 	}
 
 
-	public Lecturer getInterestLacturer4() {
+	public BusinessPartner getInterestLacturer4() {
 		return interestLacturer4;
 	}
 
 
-	public void setInterestLacturer4(Lecturer interestLacturer4) {
+	public void setInterestLacturer4(BusinessPartner interestLacturer4) {
 		this.interestLacturer4 = interestLacturer4;
 	}
 

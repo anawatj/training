@@ -16,6 +16,7 @@ import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.PaymentMethod;
 import com.tao.training.domain.master.PaymentType;
 import com.tao.training.domain.master.Position;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
 import com.tao.training.domain.person.Member;
 import com.tao.training.domain.prospect.Prospect;

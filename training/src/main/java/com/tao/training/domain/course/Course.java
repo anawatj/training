@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.master.CourseType;
+import com.tao.training.domain.person.BusinessPartner;
+import com.tao.training.domain.person.Employee;
 import com.tao.training.domain.security.User;
 @JsonInclude(Include.NON_NULL)
 public class Course extends AbstractDomain<Long>{
@@ -16,7 +18,7 @@ public class Course extends AbstractDomain<Long>{
 	}
 	private String courseCode;
 	private String courseDesc;
-	private User courseBy;
+	private Employee courseBy;
 	private CourseType courseType;
 	private Set<Subject> subjects;
 	private String objectiveDesc;
@@ -38,10 +40,10 @@ public class Course extends AbstractDomain<Long>{
 	public void setCourseDesc(String courseDesc) {
 		this.courseDesc = courseDesc;
 	}
-	public User getCourseBy() {
+	public Employee getCourseBy() {
 		return courseBy;
 	}
-	public void setCourseBy(User courseBy) {
+	public void setCourseBy(Employee courseBy) {
 		this.courseBy = courseBy;
 	}
 	public CourseType getCourseType() {

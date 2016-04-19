@@ -15,8 +15,10 @@ import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.Position;
 import com.tao.training.domain.master.Province;
 import com.tao.training.domain.master.ReceiveType;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
 import com.tao.training.domain.person.Member;
+
 @JsonInclude(Include.NON_NULL)
 public class Receive extends AbstractDomain<Long>{
 

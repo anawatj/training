@@ -3,7 +3,9 @@ package com.tao.training.domain.quotation;
 import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.master.EducationLevel;
 import com.tao.training.domain.master.Title;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Member;
+
 
 public class QuotationTrainee extends AbstractDomain<Long>{
 		

@@ -9,7 +9,9 @@ import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.master.Department;
 import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.Position;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
+
 @JsonInclude(Include.NON_NULL)
 public class Attachment extends AbstractDomain<Long>{
 

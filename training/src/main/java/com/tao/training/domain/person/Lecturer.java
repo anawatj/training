@@ -1,46 +1,55 @@
 package com.tao.training.domain.person;
 
-import com.tao.training.domain.master.EducationLevel;
+import java.util.Date;
+import java.util.Set;
 
-public class Lecturer extends Person{
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
+public class Lecturer extends BusinessPartner{
 		
 	public Lecturer()
 	{
 		
 	}
-	private String lacturerCode;
-	private String lacturerDate;
-	private Double salary;
-	private String degree;
-	private EducationLevel educationLevel;
-	public EducationLevel getEducationLevel() {
-		return educationLevel;
+	private String lecturerCode;
+	private Date effectiveDate;
+	private Date expiryDate;
+	
+	private Set<LecturerCourse> courses;
+
+	public String getLecturerCode() {
+		return lecturerCode;
 	}
-	public void setEducationLevel(EducationLevel educationLevel) {
-		this.educationLevel = educationLevel;
+
+	public void setLecturerCode(String lecturerCode) {
+		this.lecturerCode = lecturerCode;
 	}
-	public String getLacturerCode() {
-		return lacturerCode;
+
+	public Date getEffectiveDate() {
+		return effectiveDate;
 	}
-	public void setLacturerCode(String lacturerCode) {
-		this.lacturerCode = lacturerCode;
+
+	public void setEffectiveDate(Date effectiveDate) {
+		this.effectiveDate = effectiveDate;
 	}
-	public String getLacturerDate() {
-		return lacturerDate;
+
+	public Date getExpiryDate() {
+		return expiryDate;
 	}
-	public void setLacturerDate(String lacturerDate) {
-		this.lacturerDate = lacturerDate;
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
 	}
-	public Double getSalary() {
-		return salary;
+
+	public Set<LecturerCourse> getCourses() {
+		return courses;
 	}
-	public void setSalary(Double salary) {
-		this.salary = salary;
+
+	public void setCourses(Set<LecturerCourse> courses) {
+		this.courses = courses;
 	}
-	public String getDegree() {
-		return degree;
-	}
-	public void setDegree(String degree) {
-		this.degree = degree;
-	}
+	
+	
 }

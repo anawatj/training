@@ -10,8 +10,10 @@ import com.tao.training.domain.AbstractDomain;
 import com.tao.training.domain.attachment.Attachment;
 import com.tao.training.domain.master.DocStatus;
 import com.tao.training.domain.master.EvaluationType;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
 import com.tao.training.domain.person.Lecturer;
+
 @JsonInclude(Include.NON_NULL)
 public class Evaluation extends AbstractDomain<Long> {
 		

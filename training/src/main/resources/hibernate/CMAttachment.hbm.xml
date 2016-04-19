@@ -18,7 +18,7 @@
 			class="com.tao.training.domain.master.DocStatus" lazy="proxy"
 			foreign-key="FK_ATTACHMENT_DOC_STATUS" not-found="ignore"></many-to-one>
 		<many-to-one name="attachmentBy" column="ATTACHMENT_BY"
-			class="com.tao.training.domain.person.Employee" lazy="proxy"
+			class="com.tao.training.domain.person.BusinessPartner" lazy="proxy"
 			foreign-key="FK_ATTACHMENT_BY_EMPLOYEE" not-found="ignore"></many-to-one>
 		<many-to-one name="department" column="DEPARTMENT_ID"
 			class="com.tao.training.domain.master.Department" lazy="proxy"

@@ -16,8 +16,10 @@ import com.tao.training.domain.master.PaymentMethod;
 import com.tao.training.domain.master.PaymentType;
 import com.tao.training.domain.master.Position;
 import com.tao.training.domain.master.Province;
+import com.tao.training.domain.person.BusinessPartner;
 import com.tao.training.domain.person.Employee;
 import com.tao.training.domain.person.Lecturer;
+
 @JsonInclude(Include.NON_NULL)
 public class Payment extends AbstractDomain<Long> {
 		

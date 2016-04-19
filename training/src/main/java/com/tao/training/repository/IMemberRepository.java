@@ -5,7 +5,6 @@ import com.tao.training.domain.person.Member;
 
 public interface IMemberRepository extends Repository<Member,Long> {
 
-	
 	@Override
 	Result<Member> findAll() throws Exception;
 	
