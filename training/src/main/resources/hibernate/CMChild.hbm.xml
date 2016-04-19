@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
+	<class name="com.tao.training.domain.person.BpChild" table="CM_M_CHILD">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">CM_M_CHILD_SEQ</param>
+			</generator>
+		</id>
+		<version name="version" column="VERSION"></version>
+		<property name="bpId" column="BP_ID"></property>
+		<many-to-one name="title" column="TITLE_ID"
+			class="com.tao.training.domain.master.Title" lazy="proxy" not-found="ignore"></many-to-one>
+		<property name="firstName" column="FIRST_NAME" length="200"></property>
+		<property name="lastName" column="LAST_NAME" length="200"></property>
+		<property name="birthDate" column="BIRTH_DATE"></property>
+		<many-to-one name="educationLevel" column="EDUCATION_LEVEL_ID"
+			class="com.tao.training.domain.master.EducationLevel" lazy="proxy"
+			not-found="ignore"></many-to-one>
+
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+	</class>
 </hibernate-mapping>
