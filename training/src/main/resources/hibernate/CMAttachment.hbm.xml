@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.tao.training.domain.attachment.Attachment"
+		table="CM_M_ATTACHMENT">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">CM_M_ATTACHMENT_SEQ</param>
+			</generator>
+		</id>
+		<version name="version" column="VERSION"></version>
+		<property name="attachmentCode" column="ATTACHMENT_CODE"
+			length="20"></property>
+		<property name="attachmentNote" column="ATTACHMENT_NOTE"
+			length="200"></property>
+		<property name="attachmentDate" column="ATTACHMENT_DATE"></property>
+		<many-to-one name="attachmentStatus" column="ATTACHMENT_STATUS"
+			class="com.tao.training.domain.master.DocStatus" lazy="proxy"
+			foreign-key="FK_ATTACHMENT_DOC_STATUS" not-found="ignore"></many-to-one>
+		<many-to-one name="attachmentBy" column="ATTACHMENT_BY"
+			class="com.tao.training.domain.person.Employee" lazy="proxy"
+			foreign-key="FK_ATTACHMENT_BY_EMPLOYEE" not-found="ignore"></many-to-one>
+		<many-to-one name="department" column="DEPARTMENT_ID"
+			class="com.tao.training.domain.master.Department" lazy="proxy"
+			foreign-key="FK_ATTACHMENT_DEPARTMENT" not-found="ignore"></many-to-one>
+		<many-to-one name="position" column="POSITION_ID"
+			class="com.tao.training.domain.master.Position" lazy="proxy"
+			foreign-key="FK_ATTACHMENT_POSITION" not-found="ignore"></many-to-one>
+
+		<set name="items" cascade="all-delete-orphan" lazy="true">
+			<key column="ATTACHMENT_ID"></key>
+			<one-to-many class="com.tao.training.domain.attachment.AttachmentItem"
+				not-found="ignore" />
+		</set>
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+	</class>
+</hibernate-mapping>
