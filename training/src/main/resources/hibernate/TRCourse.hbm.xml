@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.tao.training.domain.course.Course" table="TR_M_COURSE">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">TR_M_COURSE_SEQ</param>
+			</generator>
+		</id>
+		<version name="version" column="VERSION"></version>
+		<property name="courseCode" column="COURSE_CODE" length="20"></property>
+		<property name="courseDesc" column="COURSE_DESC" length="200"></property>
+		<many-to-one name="courseBy" column="COURSE_BY"
+			class="com.tao.training.domain.person.Employee" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<property name="objectiveDesc" column="OBJECTIVE_DESC"
+			length="200"></property>
+
+		<set name="subjects" cascade="all-delete-ophran" lazy="true">
+				<key column="COURSE_ID"></key>
+				<one-to-many class="com.tao.training.domain.course.Subject" not-found="ignore"/>
+		</set>
+		<set name="schedules" cascade="all-delete-ophran" lazy="true">
+				<key column="COURSE_ID"></key>
+				<one-to-many class="com.tao.training.domain.course.Schedule" not-found="ignore"/>
+				
+		</set>
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+	</class>
+</hibernate-mapping>

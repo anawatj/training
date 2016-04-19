@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.tao.training.domain.course.Subject" table="TR_M_SUBJECT">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">TR_M_SUBJECT_SEQ</param>
+			</generator>
+		</id>
+		<version name="version" column="VERSION"></version>
+		<property name="courseId" column="COURSE_ID"></property>
+		<property name="subjectName" column="SUBJECT_NAME"></property>
+		<property name="objectiveDesc" column="OBJECTIVE_DESC"></property>
+		<property name="activity" column="ACTIVITY"></property>
+		<property name="theory" column="THEORY"></property>
+		<set name="topics" cascade="all-delete-ophran" lazy="true">
+			<key column="SUBJECT_ID"></key>
+			<one-to-many class="com.tao.training.domain.course.Topic"
+				not-found="ignore" />
+
+		</set>
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+	</class>
+</hibernate-mapping>

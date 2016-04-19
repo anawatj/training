@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.tao.training.domain.course.Schedule" table="TR_M_SCHEDULE">
+		<id name="id" column="ID" type="long">
+			<generator class="sequence">
+				<param name="sequence">TR_M_SCHEDULE_SEQ</param>
+			</generator>
+		</id>
+		<version name="version" column="VERSION"></version>
+		<property name="courseId" column="COURSE_ID"></property>
+		<property name="hour" column="HOUR"></property>
+		<many-to-one name="subject" column="SUBJECT_ID"
+			class="com.tao.training.domain.course.Subject" lazy="proxy"
+			not-found="ignore"></many-to-one>
+		<many-to-one name="topic" column="TOPIC_ID"
+			class="com.tao.training.domain.course.Topic" lazy="proxy" not-found="ignore"></many-to-one>
+
+
+		<property name="createdBy" column="CREATED_BY" length="20"></property>
+		<property name="createdDate" column="CREATED_DATE"></property>
+		<property name="updatedBy" column="UPDATED_BY" length="20"></property>
+		<property name="updatedDate" column="UPDATED_DATE"></property>
+
+	</class>
+</hibernate-mapping>

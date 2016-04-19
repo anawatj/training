@@ -22,6 +22,13 @@ public class Course extends AbstractDomain<Long>{
 	private CourseType courseType;
 	private Set<Subject> subjects;
 	private String objectiveDesc;
+	private Set<Schedule> schedules;
+	public Set<Schedule> getSchedules() {
+		return schedules;
+	}
+	public void setSchedules(Set<Schedule> schedules) {
+		this.schedules = schedules;
+	}
 	public String getObjectiveDesc() {
 		return objectiveDesc;
 	}
